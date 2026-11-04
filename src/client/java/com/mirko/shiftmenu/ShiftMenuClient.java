@@ -25,6 +25,8 @@ public class ShiftMenuClient implements ClientModInitializer {
 	public void onInitializeClient() {
 		ModuleManager.init();
 		Config.load();
+		// colors were loaded from the config: mark the current theme as already applied
+		ModuleManager.SETTINGS.appliedTheme = ModuleManager.SETTINGS.theme.get();
 		CombatTracker.register();
 
 		HudElementRegistry.addLast(Identifier.fromNamespaceAndPath(MOD_ID, "hud"), ShiftMenuClient::renderHud);
